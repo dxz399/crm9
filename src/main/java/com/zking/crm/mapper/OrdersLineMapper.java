@@ -1,6 +1,9 @@
 package com.zking.crm.mapper;
 
 import com.zking.crm.model.OrdersLine;
+import org.springframework.core.annotation.Order;
+
+import java.util.List;
 
 public interface OrdersLineMapper {
     int deleteByPrimaryKey(Integer oddId);
@@ -14,4 +17,7 @@ public interface OrdersLineMapper {
     int updateByPrimaryKeySelective(OrdersLine record);
 
     int updateByPrimaryKey(OrdersLine record);
+
+    List<OrdersLine> list(OrdersLine ordersLine);
+
 }

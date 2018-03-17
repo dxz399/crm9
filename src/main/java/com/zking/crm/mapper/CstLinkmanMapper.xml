@@ -24,6 +24,9 @@
     from cst_linkman
     where lkm_id = #{lkmId,jdbcType=INTEGER}
   </select>
+  <select id="list" resultMap="BaseResultMap"  parameterType="com.zking.crm.model.CstLinkman">
+    select *from cst_linkman where lkm_cust_no = #{lkmCustNo,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cst_linkman
     where lkm_id = #{lkmId,jdbcType=INTEGER}

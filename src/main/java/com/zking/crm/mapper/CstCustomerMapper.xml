@@ -28,6 +28,33 @@
       <arg column="cust_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
+
+  <resultMap id="mymap" type="com.zking.crm.model.CstCustomer" >
+      <id column="cust_no"  property="custNo" javaType="java.lang.String" />
+      <result column="cust_name"  property="custName"  javaType="java.lang.String" />
+      <result column="cust_region" property="custRegion" javaType="java.lang.String" />
+      <result column="cust_manager_id" property="custManagerId" javaType="java.lang.Integer" />
+      <result column="cust_manager_name"  property="custManagerName" javaType="java.lang.String" />
+      <result column="cust_level" property="custLevel" javaType="java.lang.Integer" />
+      <result column="cust_level_label"  property="custLevelLabel" javaType="java.lang.String" />
+      <result column="cust_satisfy"  property="custSatisfy" javaType="java.lang.Integer" />
+      <result column="cust_credit"  property="custCredit"  javaType="java.lang.Integer" />
+      <result column="cust_addr"  property="custAddr" javaType="java.lang.String" />
+      <result column="cust_zip"   property="custZip" javaType="java.lang.String" />
+      <result column="cust_tel"  property="custTel" javaType="java.lang.String" />
+      <result column="cust_fax"  property="custFax"  javaType="java.lang.String" />
+      <result column="cust_website"  property="custWebsite"  javaType="java.lang.String" />
+      <result column="cust_licence_no"  property="custLicenceNo" javaType="java.lang.String" />
+      <result column="cust_chieftain"  property="custChieftain" javaType="java.lang.String" />
+      <result column="cust_bankroll"  property="custBankroll" javaType="java.lang.Integer" />
+      <result column="cust_turnover"  property="custTurnover"  javaType="java.lang.Integer" />
+      <result column="cust_bank"  property="custBank" javaType="java.lang.String" />
+      <result column="cust_bank_account"  property="custBankAccount"  javaType="java.lang.String" />
+      <result column="cust_local_tax_no" property="custLocalTaxNo" javaType="java.lang.String" />
+      <result column="cust_national_tax_no"  property="custNationalTaxNo"  jdbcType="VARCHAR" javaType="java.lang.String" />
+      <result column="cust_status"  property="custStatus" javaType="java.lang.Integer" />
+  </resultMap>
+
   <sql id="Base_Column_List" >
     cust_no, cust_name, cust_region, cust_manager_id, cust_manager_name, cust_level, 
     cust_level_label, cust_satisfy, cust_credit, cust_addr, cust_zip, cust_tel, cust_fax, 
@@ -40,7 +67,15 @@
     from cst_customer
     where cust_no = #{custNo,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    <select id="list" resultMap="BaseResultMap"
+            parameterType="com.zking.crm.model.CstCustomer">
+        select * from cst_customer where 1=1
+    </select>
+    <select id="listDj"  resultMap="mymap" parameterType="com.zking.crm.model.CstCustomer">
+      select cust_level,COUNT(cust_level) as  cust_satisfy  from cst_customer GROUP BY cust_level
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from cst_customer
     where cust_no = #{custNo,jdbcType=VARCHAR}
   </delete>

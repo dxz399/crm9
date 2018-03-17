@@ -1,14 +1,18 @@
 package com.zking.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class CstActivity {
+public class CstActivity implements Serializable{
     private Integer atvId;
 
     private String atvCustNo;
 
     private String atvCustName;
 
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
     private Date atvDate;
 
     private String atvPlace;
@@ -18,6 +22,20 @@ public class CstActivity {
     private String atvRemark;
 
     private String atvDesc;
+
+    @Override
+    public String toString() {
+        return "CstActivity{" +
+                "atvId=" + atvId +
+                ", atvCustNo='" + atvCustNo + '\'' +
+                ", atvCustName='" + atvCustName + '\'' +
+                ", atvDate=" + atvDate +
+                ", atvPlace='" + atvPlace + '\'' +
+                ", atvTitle='" + atvTitle + '\'' +
+                ", atvRemark='" + atvRemark + '\'' +
+                ", atvDesc='" + atvDesc + '\'' +
+                '}';
+    }
 
     public CstActivity(Integer atvId, String atvCustNo, String atvCustName, Date atvDate, String atvPlace, String atvTitle, String atvRemark, String atvDesc) {
         this.atvId = atvId;

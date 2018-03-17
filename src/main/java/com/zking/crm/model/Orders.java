@@ -1,8 +1,9 @@
 package com.zking.crm.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Orders {
+public class Orders implements Serializable{
     private Integer odrId;
 
     private String odrCustomer;
@@ -12,6 +13,17 @@ public class Orders {
     private String odrAddr;
 
     private Integer odrStatus;
+
+    @Override
+    public String toString() {
+        return "Orders{" +
+                "odrId=" + odrId +
+                ", odrCustomer='" + odrCustomer + '\'' +
+                ", odrDate=" + odrDate +
+                ", odrAddr='" + odrAddr + '\'' +
+                ", odrStatus=" + odrStatus +
+                '}';
+    }
 
     public Orders(Integer odrId, String odrCustomer, Date odrDate, String odrAddr, Integer odrStatus) {
         this.odrId = odrId;

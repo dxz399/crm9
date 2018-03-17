@@ -2,6 +2,8 @@ package com.zking.crm.mapper;
 
 import com.zking.crm.model.CstLinkman;
 
+import java.util.List;
+
 public interface CstLinkmanMapper {
     int deleteByPrimaryKey(Integer lkmId);
 
@@ -14,4 +16,7 @@ public interface CstLinkmanMapper {
     int updateByPrimaryKeySelective(CstLinkman record);
 
     int updateByPrimaryKey(CstLinkman record);
+
+    //查询每个客户所对应的联系人
+    List<CstLinkman> list(CstLinkman cstLinkman);
 }

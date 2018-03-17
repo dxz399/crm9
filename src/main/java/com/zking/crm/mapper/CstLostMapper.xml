@@ -25,7 +25,17 @@
     from cst_lost
     where lst_id = #{lstId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="list" resultMap="BaseResultMap"  parameterType="com.zking.crm.model.CstLost">
+      select * from cst_lost where DATEDIFF(NOW(),lst_last_order_date)>6
+      <if test="null != lstCustName  and ''!=lstCustName">
+        and lst_cust_name like CONCAT("%",#{lstCustName,jdbcType=VARCHAR},"%")
+      </if>
+      <if test="null != lstCustManagerName  and ''!=lstCustManagerName">
+        and lst_cust_manager_name like CONCAT("%", #{lstCustManagerName,jdbcType=VARCHAR},"%")
+      </if>
+
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cst_lost
     where lst_id = #{lstId,jdbcType=INTEGER}
   </delete>

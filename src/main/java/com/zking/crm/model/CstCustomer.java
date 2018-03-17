@@ -1,6 +1,8 @@
 package com.zking.crm.model;
 
-public class CstCustomer {
+import java.io.Serializable;
+
+public class CstCustomer implements Serializable{
     private String custNo;
 
     private String custName;
@@ -259,5 +261,34 @@ public class CstCustomer {
 
     public void setCustStatus(Integer custStatus) {
         this.custStatus = custStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "CstCustomer{" +
+                "custNo='" + custNo + '\'' +
+                ", custName='" + custName + '\'' +
+                ", custRegion='" + custRegion + '\'' +
+                ", custManagerId=" + custManagerId +
+                ", custManagerName='" + custManagerName + '\'' +
+                ", custLevel=" + custLevel +
+                ", custLevelLabel='" + custLevelLabel + '\'' +
+                ", custSatisfy=" + custSatisfy +
+                ", custCredit=" + custCredit +
+                ", custAddr='" + custAddr + '\'' +
+                ", custZip='" + custZip + '\'' +
+                ", custTel='" + custTel + '\'' +
+                ", custFax='" + custFax + '\'' +
+                ", custWebsite='" + custWebsite + '\'' +
+                ", custLicenceNo='" + custLicenceNo + '\'' +
+                ", custChieftain='" + custChieftain + '\'' +
+                ", custBankroll=" + custBankroll +
+                ", custTurnover=" + custTurnover +
+                ", custBank='" + custBank + '\'' +
+                ", custBankAccount='" + custBankAccount + '\'' +
+                ", custLocalTaxNo='" + custLocalTaxNo + '\'' +
+                ", custNationalTaxNo='" + custNationalTaxNo + '\'' +
+                ", custStatus=" + custStatus +
+                '}';
     }
 }

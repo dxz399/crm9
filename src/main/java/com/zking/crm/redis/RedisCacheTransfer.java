@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  */
 public class RedisCacheTransfer {
 
-    @Autowired
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        RedisCache.setRedisTemplate(redisTemplate);
-    }
+//    @Autowired
+//    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+//        RedisCache.setRedisTemplate(redisTemplate);
+//    }
 
 }

@@ -1,8 +1,11 @@
 package com.zking.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class CstLost {
+public class CstLost implements Serializable{
     private Integer lstId;
 
     private String lstCustNo;
@@ -13,8 +16,10 @@ public class CstLost {
 
     private String lstCustManagerName;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date lstLastOrderDate;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date lstLostDate;
 
     private String lstDelay;
@@ -22,6 +27,22 @@ public class CstLost {
     private String lstReason;
 
     private Integer lstStatus;
+
+    @Override
+    public String toString() {
+        return "CstLost{" +
+                "lstId=" + lstId +
+                ", lstCustNo='" + lstCustNo + '\'' +
+                ", lstCustName='" + lstCustName + '\'' +
+                ", lstCustManagerId=" + lstCustManagerId +
+                ", lstCustManagerName='" + lstCustManagerName + '\'' +
+                ", lstLastOrderDate=" + lstLastOrderDate +
+                ", lstLostDate=" + lstLostDate +
+                ", lstDelay='" + lstDelay + '\'' +
+                ", lstReason='" + lstReason + '\'' +
+                ", lstStatus=" + lstStatus +
+                '}';
+    }
 
     public CstLost(Integer lstId, String lstCustNo, String lstCustName, Integer lstCustManagerId, String lstCustManagerName, Date lstLastOrderDate, Date lstLostDate, String lstDelay, String lstReason, Integer lstStatus) {
         this.lstId = lstId;

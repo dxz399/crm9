@@ -22,7 +22,10 @@
     from cst_activity
     where atv_id = #{atvId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="list" resultMap="BaseResultMap" parameterType="com.zking.crm.model.CstActivity">
+        select * from cst_activity where atv_cust_no = #{atvCustNo,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from cst_activity
     where atv_id = #{atvId,jdbcType=INTEGER}
   </delete>

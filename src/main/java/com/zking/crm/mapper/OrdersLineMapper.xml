@@ -20,7 +20,11 @@
     from orders_line
     where odd_id = #{oddId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="list" resultMap="BaseResultMap"
+            parameterType="com.zking.crm.model.OrdersLine">
+      select * from orders_line where odd_order_id = #{oddOrderId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from orders_line
     where odd_id = #{oddId,jdbcType=INTEGER}
   </delete>

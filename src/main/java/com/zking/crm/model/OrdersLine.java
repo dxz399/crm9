@@ -1,6 +1,8 @@
 package com.zking.crm.model;
 
-public class OrdersLine {
+import java.io.Serializable;
+
+public class OrdersLine implements Serializable{
     private Integer oddId;
 
     private Integer oddOrderId;
@@ -12,6 +14,18 @@ public class OrdersLine {
     private String oddUnit;
 
     private Float oddPrice;
+
+    @Override
+    public String toString() {
+        return "OrdersLine{" +
+                "oddId=" + oddId +
+                ", oddOrderId=" + oddOrderId +
+                ", oddProdId=" + oddProdId +
+                ", oddCount=" + oddCount +
+                ", oddUnit='" + oddUnit + '\'' +
+                ", oddPrice=" + oddPrice +
+                '}';
+    }
 
     public OrdersLine(Integer oddId, Integer oddOrderId, Integer oddProdId, Integer oddCount, String oddUnit, Float oddPrice) {
         this.oddId = oddId;

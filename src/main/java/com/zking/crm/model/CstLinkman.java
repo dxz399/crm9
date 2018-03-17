@@ -1,6 +1,8 @@
 package com.zking.crm.model;
 
-public class CstLinkman {
+import java.io.Serializable;
+
+public class CstLinkman implements Serializable{
     private Integer lkmId;
 
     private String lkmCustNo;
@@ -18,6 +20,21 @@ public class CstLinkman {
     private String lkmMobile;
 
     private String lkmMemo;
+
+    @Override
+    public String toString() {
+        return "CstLinkman{" +
+                "lkmId=" + lkmId +
+                ", lkmCustNo='" + lkmCustNo + '\'' +
+                ", lkmCustName='" + lkmCustName + '\'' +
+                ", lkmName='" + lkmName + '\'' +
+                ", lkmSex='" + lkmSex + '\'' +
+                ", lkmPostion='" + lkmPostion + '\'' +
+                ", lkmTel='" + lkmTel + '\'' +
+                ", lkmMobile='" + lkmMobile + '\'' +
+                ", lkmMemo='" + lkmMemo + '\'' +
+                '}';
+    }
 
     public CstLinkman(Integer lkmId, String lkmCustNo, String lkmCustName, String lkmName, String lkmSex, String lkmPostion, String lkmTel, String lkmMobile, String lkmMemo) {
         this.lkmId = lkmId;

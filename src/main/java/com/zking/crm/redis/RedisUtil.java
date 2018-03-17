@@ -27,9 +27,9 @@ public class RedisUtil {
     }
 
     @Autowired
-    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+//    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+//        this.redisTemplate = redisTemplate;
+//    }
 
     public RedisTemplate<String, Object> getRedisTemplate() {
         return redisTemplate;
